@@ -31,7 +31,7 @@ jobs:
             role-session-name: GitHub_to_AWS_via_FederatedOIDC
     - name: Invalidate Cloudfront Cache
       run: |
-        aws cloudfront create-invalidation --distribution-id EAKMWW6S5Z3KD --paths "/*" --profile admin
+        aws cloudfront create-invalidation --distribution-id EAKMWW6S5Z3KD --paths "/*"
     - name: Upload to S3
       run: |
-        aws s3 cp . s3://lanceriver.com/ --recursive --profile admin
+        aws s3 cp . s3://lanceriver.com/ --recursive
