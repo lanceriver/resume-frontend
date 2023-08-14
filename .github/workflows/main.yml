@@ -21,4 +21,9 @@ jobs:
             aws-region: us-east-1
             role-to-assume: arn:aws:iam::319611139788:role/GitHubAction-AssumeRoleWithAction
             role-session-name: GitHub_to_AWS_via_FederatedOIDC
-    
+    - name: Invalidate Cloudfront Cache
+      run: |
+        aws cloudfront create-invalidation --distribution-id EAKMWW6S5Z3KD --paths "/*" --profile admin
+    - name: Upload to S3
+      run: |
+        aws s3 cp . s3://lanceriver.com/ --recursive --profile admin
