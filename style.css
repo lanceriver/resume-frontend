@@ -93,11 +93,13 @@ div
 .titlecontainer {
   display:grid;
   align-items: center;
+  justify-content: center;
 }
 .title h1{
   font-family: Helvetica, Arial, sans-serif;
   overflow: hidden;
   border-right: 3px solid black;
+  font-size: 15vh;
   white-space: nowrap;
   margin:auto;
   width: 0;
@@ -109,7 +111,7 @@ div
 /* The typing effect */
 @keyframes typing {
   from { width: 0 }
-  to { width: 95% }
+  to { width: 100% }
 }
 
 /* The typewriter cursor effect */
