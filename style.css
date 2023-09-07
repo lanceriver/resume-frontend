@@ -78,17 +78,24 @@ ul#skills {
 
 div
 {
-    font-size: 30px;
-    padding: 100px;
+    font-size: 125%;
+    padding:100px
+}
+@media screen and (max-width: 480px) {
+  div {
+    padding:100%;
+  }
 }
 .Header {
-  margin-top: 1px;
-  padding-top: 1px;
-  padding-bottom:1px;
+  padding-top: 1%;
   color: #454851;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: first baseline;
+}
+.Header > div {
+  margin: 0;
+  padding: 5%
 }
 .titlecontainer {
   display:grid;
@@ -109,15 +116,13 @@ div
     blink .8s steps(30) infinite;
 }
 
-@media only screen and (max_width: 480px) {
-  .title h1 {
-    background-color: blue;
-    width: 100%;
+@media screen and (max-width: 600px) {
+  .title h1{
     font-family: Helvetica, Arial, sans-serif;
     overflow: hidden;
     border-right: 3px solid black;
-    font-size: 15vh;
-    white-space: wrap;
+    font-size: 10vh;
+    white-space: pre-wrap;
     margin:auto;
     width: 0;
     animation: 
