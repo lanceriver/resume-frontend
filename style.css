@@ -96,6 +96,7 @@ div
   justify-content: center;
 }
 .title h1{
+  width: 100%;
   font-family: Helvetica, Arial, sans-serif;
   overflow: hidden;
   border-right: 3px solid black;
@@ -134,7 +135,7 @@ div
 .content {
   display: flex;
   flex-direction: column;
-  padding: 100px;
+  padding: 7%;
 }
 .row {
   display: grid;
