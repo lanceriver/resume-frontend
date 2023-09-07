@@ -109,6 +109,23 @@ div
     blink .8s steps(30) infinite;
 }
 
+@media only screen and (max_width: 480px) {
+  .title h1 {
+    background-color: blue;
+    width: 100%;
+    font-family: Helvetica, Arial, sans-serif;
+    overflow: hidden;
+    border-right: 3px solid black;
+    font-size: 15vh;
+    white-space: wrap;
+    margin:auto;
+    width: 0;
+    animation: 
+      typing 2.5s steps(30, end) forwards,
+      blink .8s steps(30) infinite;
+  }
+}
+
 /* The typing effect */
 @keyframes typing {
   from { width: 0 }
