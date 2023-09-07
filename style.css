@@ -90,10 +90,34 @@ div
   flex-direction: row;
   align-items: center;
 }
-.title {
-  padding-top:200px;
-  padding-bottom:300px;
+.titlecontainer {
+  display:grid;
+  align-items: center;
 }
+.title h1{
+  font-family: Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  border-right: 3px solid black;
+  white-space: nowrap;
+  margin:auto;
+  width: 0;
+  animation: 
+    typing 2.5s steps(30, end) forwards,
+    blink .8s steps(30) infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 95% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink {
+  from { border-color: transparent }
+  to { border-color: black; }
+}
+
 .myself {
   display: flex;
   flex-direction: row;
@@ -114,7 +138,7 @@ div
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: baseline;
-  padding: 100px;
+  padding-left: 10px
 }
 .section {
   padding: 10px;
