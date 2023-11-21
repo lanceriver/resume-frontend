@@ -11,6 +11,7 @@ async function get_visitor_count() {
     });
     const json_data = await response.json();
     const visitor_count = json_data.Item.viewer_count;
+    ordinal_suffix(visitor_count);
     document.getElementById("visitor_counter").innerHTML = visitor_count;
 }
 
@@ -24,7 +25,8 @@ async function update_visitor_count() {
     });
     const json_data = await response.json();
     const visitor_count = json_data.Attributes.viewer_count;
-  document.getElementById("visitor_counter").innerHTML = visitor_count;
+    ordinal_suffix(visitor_count);
+    document.getElementById("visitor_counter").innerHTML = visitor_count;
 }
 
 function generate_uuid() {
@@ -87,6 +89,29 @@ function check_cookie_exists() {
       check_cookie_unique();
       return user_cookie;
     }
+}
+
+function ordinal_suffix(visitor_count) {
+  const last_digit = visitor_count % 10;
+  var suffix;
+  if (last_digit == 1) {
+    suffix = "st";
+  }
+  else if (last_digit == 2) {
+    if (visitor_count % 100 == 12) {
+      suffix = "th";
+    }
+    else {
+      suffix = "nd";
+    }
+  }
+  else if (last_digit == 3) {
+    suffix = "rd";
+  }
+  else if (last_digit == 0 || last_digit >= 4 && last_digit <= 10) {
+    suffix = "th";
+  }
+  document.getElementById("number_suffix").innerHTML = suffix;
 }
 
 check_cookie_exists();

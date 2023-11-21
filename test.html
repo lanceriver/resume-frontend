@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  @keyframes slideInFromBottom {
+    0% {
+      transform: translateY(500%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .moving-text {
+    animation: slideInFromBottom 0.5s ease-in-out;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="moving-text">Text that moves in from the bottom</div>
+
+</body>
+</html>
