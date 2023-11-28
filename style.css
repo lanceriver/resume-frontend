@@ -84,7 +84,7 @@ p#aboutme {
   color:black;
 }
 
-a:visited {
+a, a:visited {
   text-decoration: none;
   color:#002A5A;
 }
