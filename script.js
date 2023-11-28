@@ -1,6 +1,24 @@
 const { v4: uuidv4 } = require('uuid');
 const Cookies = require('js-cookie');
 
+const nav_buttons = document.getElementsByClassName("button");
+
+for (let i = 0; i < nav_buttons.length; i++) {
+  let button = nav_buttons[i];
+  let id = button.id;
+  console.log(id);
+  document.getElementById(id).addEventListener("click", ()=>
+  {
+    scrollInto(id);
+  });
+}
+
+function scrollInto(section) {
+  console.log(section);
+  var element = document.getElementsByClassName(section)[0];
+  element.scrollIntoView({behaviour: "smooth", block: "start", inline: "nearest"});
+}
+
 async function get_visitor_count() {
     const response = await fetch("https://alpe5t2zwl.execute-api.us-east-1.amazonaws.com/get_visitor_count", {
       method: "GET",
