@@ -94,10 +94,11 @@ a, a:visited {
 }
 
 #visitor_count {
-  color:#454851;
-  font-family: 'Times New Roman', Times, serif;
+  color:#002A5A;
+  font-family: Helvetica, Arial, sans-serif;
   text-align:center;
   font-size: 30px;
+  margin-bottom: 2em;
 }
 ul {
   list-style-type: none;
