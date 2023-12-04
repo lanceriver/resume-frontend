@@ -156,7 +156,7 @@ div
   to {color:#002A5A;}
 }
 
-.Header > div, a {
+.Header > div, .Header > a {
   font-size: 0.9rem;
   margin-right: 1rem;
   padding: 0;
