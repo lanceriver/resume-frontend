@@ -1,0 +1,37 @@
+name: Update website code
+
+on:
+  push:
+    branches: [ "master" ]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  build:
+  
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - id: install-aws-cli
+      uses: unfor19/install-aws-cli-action@v1
+      with:
+        version: 2     # default
+        verbose: false # default
+        arch: amd64    # allowed values: amd64, arm64
+        rootdir: ""    # defaults to "PWD"
+        workdir: ""    # defaults to "PWD/unfor19-awscli"
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+            aws-region: us-east-1
+            role-to-assume: arn:aws:iam::319611139788:role/GitHubAction-AssumeRoleWithAction
+            role-session-name: GitHub_to_AWS_via_FederatedOIDC
+    - name: Invalidate Cloudfront Cache
+      run: |
+        aws cloudfront create-invalidation --distribution-id EAKMWW6S5Z3KD --paths "/*"
+    - name: Upload to S3
+      run: |
+        aws s3 cp . s3://lanceriver.com/ --recursive
