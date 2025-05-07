@@ -28,7 +28,6 @@ jobs:
     - name: Build Next.js app
       run: | 
         npx next build
-        npx next export
 
     - id: install-aws-cli
       uses: unfor19/install-aws-cli-action@v1
