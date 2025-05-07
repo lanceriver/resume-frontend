@@ -15,6 +15,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16' 
+
+    - name: Install dependencies
+      run: |
+        npm install
+
+    - name: Build Next.js app
+      run: | 
+        npm run build
+        npm run export
+
     - id: install-aws-cli
       uses: unfor19/install-aws-cli-action@v1
       with:
@@ -34,4 +49,4 @@ jobs:
         aws cloudfront create-invalidation --distribution-id EAKMWW6S5Z3KD --paths "/*"
     - name: Upload to S3
       run: |
-        aws s3 cp . s3://lanceriver.com/ --recursive
+        aws s3 sync ./out/ s3://lanceriver.com/ --delete --exact-timestamps
