@@ -13,15 +13,18 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#FFEBD6]">
+    <div className="bg-[#FFEBD6]">
       <Navbar></Navbar>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <Title></Title>
-      <div>
-        <About></About>
-        <ExperienceFeed></ExperienceFeed>
-      </div> 
-      <VisitorCount></VisitorCount>
+      <div className="min-h-screen grid grid-cols-1 lg:grid-cols-2 gap-8 md:ml-8 mr-8">
+        <div className="lg:fixed">
+          <Title></Title>
+        </div>
+        <div>
+        </div>     
+        <div className="lg:ml-0 lg:mr-20">
+          <About></About> 
+          <ExperienceFeed></ExperienceFeed>
+        </div> 
       </div>
     </div>
       

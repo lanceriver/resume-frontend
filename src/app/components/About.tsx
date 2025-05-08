@@ -2,9 +2,9 @@ import { Skills } from "./Skills";
 
 export function About() {
     return (
-        <div>
-            <h1 className="font-[sourceSerif] text-2xl ml-5 mb-8">About</h1>
-            <div className="flex flex-col space-y-4 font-sans text-sm/snug ml-5 mr-5 mb-20">
+        <div className="ml-5">
+            <h1 className="font-[sourceSerif] text-2xl md:text-4xl mb-8">About</h1>
+            <div className="flex flex-col space-y-4 font-sans text-base/snug mr-5 mb-20">
             <p>I’m a second-year Computer Science student at the University of New South Wales, who just got back from two years of military service in Singapore.
             </p>
             <p>I started learning to code in high school, and was fascinated by its 

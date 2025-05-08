@@ -22,7 +22,7 @@ export function ExperienceFeed() {
     ];
     return (
         <div className="flex flex-col space-y-4 font-sans ml-5 mr-5 mb-20">
-            <h1 className="font-[sourceSerif] text-2xl mb-8">Experience</h1>
+            <h1 className="font-[sourceSerif] text-2xl md:text-4xl mb-8">Experience</h1>
             {experiences.map((experience, index) => (
                 <ExperienceCard key={index} data={experience}></ExperienceCard>
             ))}
