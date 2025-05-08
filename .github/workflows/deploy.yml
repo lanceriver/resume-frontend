@@ -41,11 +41,11 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v2
       with:
             aws-region: us-east-1
-            role-to-assume: arn:aws:iam::319611139788:role/GitHubAction-AssumeRoleWithAction
+            role-to-assume: ${{ secrets.AWS_ROLE_ARN}}
             role-session-name: GitHub_to_AWS_via_FederatedOIDC
     - name: Invalidate Cloudfront Cache
       run: |
-        aws cloudfront create-invalidation --distribution-id EAKMWW6S5Z3KD --paths "/*"
+        aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
     - name: Upload to S3
       run: |
         aws s3 sync ./out/ s3://lanceriver.com/ --delete --exact-timestamps
