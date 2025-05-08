@@ -25,6 +25,7 @@ export default function Home() {
           <About></About> 
           <ExperienceFeed></ExperienceFeed>
         </div> 
+        <VisitorCount></VisitorCount>
       </div>
     </div>
       
