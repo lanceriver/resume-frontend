@@ -6,9 +6,10 @@ resume-frontend-new/
 # OS
 .DS_Store
 
-# Editors
+# Editors / tooling
 .vscode/
 .idea/
+.claude/
 
 # Node
 node_modules/

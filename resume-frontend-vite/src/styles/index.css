@@ -1,0 +1,134 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-paper:       #F5F1E8;
+  --color-paper-deep:  #EBE5D4;
+  --color-ink:         #15130F;
+  --color-ink-muted:   #5A5447;
+  --color-ink-soft:    #8A8371;
+  --color-rule:        rgba(21, 19, 15, 0.12);
+  --color-rule-strong: rgba(21, 19, 15, 0.25);
+  --color-spot:        #8B1A1A;
+  --color-spot-hover:  #6E1414;
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans:    "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-paper);
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern", "liga", "calt";
+}
+
+/* Fraunces always opts in to variable axes */
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-variation-settings: "SOFT" 0, "WONK" 0;
+}
+
+.font-display-masthead {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 0;
+}
+
+/* Real CSS drop cap on the About paragraph */
+.drop-cap::first-letter {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-variation-settings: "opsz" 144;
+  font-weight: 500;
+  font-size: 5.25em;
+  line-height: 0.82;
+  float: left;
+  padding: 0.09em 0.08em 0 0;
+  margin: 0;
+  color: var(--color-spot);
+}
+
+/* Animated underline on links (no color flip) */
+.link-underline {
+  position: relative;
+  display: inline;
+  color: inherit;
+  text-decoration: none;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.08em;
+  height: 1px;
+  background-color: var(--color-spot);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms ease-out;
+}
+.link-underline:hover::after,
+.link-underline:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Section number reveal */
+.section-number {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 500ms ease-out, transform 500ms ease-out;
+}
+.section-number.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Oldstyle figures for the numbered section labels */
+.oldstyle {
+  font-variant-numeric: oldstyle-nums;
+}
+
+/* Small-caps utility for metadata labels */
+.smallcaps {
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.08em;
+}
+
+/* Tailwind's `prose` body override for blog posts on paper background */
+.prose-editorial {
+  color: var(--color-ink);
+}
+.prose-editorial h1,
+.prose-editorial h2,
+.prose-editorial h3 {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+.prose-editorial a {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--color-spot);
+  text-underline-offset: 0.25em;
+}
+.prose-editorial a:hover {
+  color: var(--color-spot);
+}
+
+/* Selection — use the spot color */
+::selection {
+  background: var(--color-spot);
+  color: var(--color-paper);
+}
