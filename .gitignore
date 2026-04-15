@@ -1,0 +1,17 @@
+# Legacy project trees — preserved on disk but not tracked in this repo.
+# Each has its own nested .git/ directory; see README for context.
+resume-frontend/
+resume-frontend-new/
+
+# OS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+
+# Node
+node_modules/
+
+# Build output
+dist/
